@@ -2,9 +2,11 @@ import csv
 import ast
 
 def show_status():
+    #status is a list of (user_that_owes_money, [(spender, money_owed_to_spender), ...])
     status = []
 
     with open('expense_report.csv', newline='') as expense_report:
+        #Skip first line and then read the file
         next(expense_report)
         expenses = csv.reader(expense_report, delimiter=';', quotechar='|')
 
