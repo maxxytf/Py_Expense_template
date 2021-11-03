@@ -28,7 +28,7 @@ def new_expense(*args):
     label = infos['label']
     spender = infos['spender']
 
-    #Open the expense .csv file and add new line with expense infos
+    #Open the expense .csv file and add new line with expense's infos
     with open("expense_report.csv", "a") as text_file:
         print(f"{amount},{label},{spender}", file=text_file)
     
