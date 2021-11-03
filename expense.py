@@ -1,5 +1,6 @@
 from os import remove
 from PyInquirer import prompt
+import csv
 
 expense_questions = [
     {
@@ -59,8 +60,10 @@ def new_expense(*args):
     involved_list = remove_duplicates(involved_list)
 
     #Open the expense .csv file and add new line with expense's infos
-    with open("expense_report.csv", "a") as text_file:
-        print(f"{amount},{label},{spender},{involved_list}", file=text_file)
+    with open("expense_report.csv", "a") as expense_report:
+        expensewriter = csv.writer(expense_report, delimiter=';',
+                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        expensewriter.writerow([amount, label, spender, involved_list])
         
     print("Expense Added !")
     return True

@@ -1,1 +1,3 @@
-Amount,Label,Spender,Involved
+Amount;Label;Spender;Involved
+10;a;SIGL;['SIGL', 'RDuval', 'PChojka']
+20;a;RDuval;['SIGL', 'RDuval']

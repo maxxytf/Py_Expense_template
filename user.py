@@ -1,4 +1,6 @@
 from PyInquirer import prompt
+import csv
+
 user_questions = [
     {
         "type":"input",
@@ -13,8 +15,9 @@ def add_user():
     name = infos['name']
 
     #Open the user .csv file and add new line with user's infos
-    with open("users.csv", "a") as text_file:
-        print(f"{name}", file=text_file)
+    with open("users.csv", "a") as users:
+        userwriter = csv.writer(users)
+        userwriter.writerow([name])
     
     print("User Added !")
     return True
