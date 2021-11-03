@@ -46,7 +46,9 @@ def new_expense(*args):
 
     #Remove every spaces in involved people list and check if they are in user list
     involved = involved.replace(" ", "")
-    involved_list = involved.split(',')
+    involved_list = []
+    if involved != "":
+        involved_list = involved.split(',')
     for user in involved_list:
         if not user.lower() in users_list:
             print('Error: User "{0}" Not Found!'.format(user))
